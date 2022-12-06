@@ -52,7 +52,7 @@
 #define LORA_MISO      11
 #define LORA_MOSI      10
 
-#elif defined(WIFI_LoRa_32_V2)||defined(wireless_stick)||defined(wireless_stick_lite)||defined(wireless_bridge)
+#elif defined(WIFI_LoRa_32_V2)||defined(Wireless_Stick)||defined(Wireless_Stick_Lite)||defined(wireless_bridge)
 #define RADIO_RESET                                14
 
 #define LORA_MOSI                                  27

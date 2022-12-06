@@ -55,7 +55,7 @@
 #include "Arduino.h"
 #include "../driver/timer.h"
 #include "../loramac/LoRaMacCrypto.h"
-#if defined(wireless_stick_lite)||defined(wireless_stick)||defined(WIFI_LoRa_32_V2)||defined(WIFI_LoRa_32)||defined(wireless_bridge)
+#if defined(Wireless_Stick_Lite)||defined(Wireless_Stick)||defined(WIFI_LoRa_32_V2)||defined(WIFI_LoRa_32)||defined(wireless_bridge)
 #include "../radio/radio_sx127x.h"
 #else
 #include "../radio/radio.h"
