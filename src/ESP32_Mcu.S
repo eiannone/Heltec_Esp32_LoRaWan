@@ -560,10 +560,10 @@ _ZN8McuClass5beginEv:
     l32i    a3, a4, 0
     memw
     s32i    a3, a1, 0x5C
-    call8   _Z17getLicenseAddressv
-    call8   _Z11readlicensev
-    call8   _Z6calRTCv
-    bnei    a10, 1, loc_676
+/*    call8   _Z17getLicenseAddressv*/
+/*    call8   _Z11readlicensev*/
+/*    call8   _Z6calRTCv*/
+/*    bnei    a10, 1, loc_676*/
     j       loc_798
 
 /* --------------------------------------------------------------------------- */
@@ -777,8 +777,8 @@ loc_851:
     bltu    a10, a2, loc_8A0
 
 loc_865:
-    call8   _Z6calRTCv
-    bnei    a10, 1, loc_8A0
+/*    call8   _Z6calRTCv*/
+/*    bnei    a10, 1, loc_8A0*/
     call8   TimerIrqHandler
     j       loc_8A0
 /*---------------------------------------------------------------------------*/
