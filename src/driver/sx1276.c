@@ -32,7 +32,8 @@
 #include "../driver/delay.h"
 #include "../driver/sx1276-board.h"
 #include "../driver/debug.h"
-extern  void lora_printf(const char *format, ...);
+extern void lora_printf(const char *format, ...);
+extern uint8_t SpiInOut(Spi_t *obj, uint8_t outData );
 
 
 /*!

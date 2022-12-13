@@ -22,7 +22,7 @@ build_flags =
     -D REGION_EU433
 ```
 
-To show debug information about LoRa activity on the embedded LCD screen, you can optionally add the `LORA_DISPLAY` constant:
+To show debug information about LoRa activity on the embedded Oled screen, you can optionally add the `LORA_DISPLAY` constant:
 ```ini
 build_flags =
     -D LoRaWAN_DEBUG_LEVEL=3
@@ -30,3 +30,4 @@ build_flags =
     -D REGION_EU433
     -D LORA_DISPLAY
 ```
+In this case, you need to add also the Oled library [Heltec_Esp32_Display](https://registry.platformio.org/libraries/eiannone/Heltec_Esp32_Display) to the project dependencies.
