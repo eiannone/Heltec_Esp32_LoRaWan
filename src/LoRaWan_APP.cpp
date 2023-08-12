@@ -1,5 +1,5 @@
 #include <LoRaWan_APP.h>
-#include "Arduino.h"
+#include <Arduino.h>
 
 #if(LoraWan_RGB==1)
 #include "CubeCell_NeoPixel.h"
@@ -21,11 +21,13 @@ CubeCell_NeoPixel pixels(1, RGB, NEO_GRB + NEO_KHZ800);
 #if defined(LORA_DISPLAY)
 #include <Wire.h>  
 #include "HT_SSD1306Wire.h"
-
-  SSD1306Wire  display(0x3c, 500000, SDA_OLED, SCL_OLED, GEOMETRY_128_64, RST_OLED);; // addr , freq , i2c group , resolution , rst
-
   uint8_t ifDisplayAck=0;
   uint8_t isDispayOn=0;
+  #ifdef Wireless_Stick_V3
+    SSD1306Wire  display(0x3c, 500000, SDA_OLED, SCL_OLED, GEOMETRY_64_32, RST_OLED);; // addr , freq , i2c group , resolution , rst
+  #else
+    SSD1306Wire  display(0x3c, 500000, SDA_OLED, SCL_OLED, GEOMETRY_128_64, RST_OLED);; // addr , freq , i2c group , resolution , rst
+  #endif
 #endif
 
 /*loraWan default Dr when adr disabled*/
@@ -731,7 +733,7 @@ void LoRaWanClass::displayJoining()
 	display.setFont(ArialMT_Plain_16);
 	display.setTextAlignment(TEXT_ALIGN_CENTER);
 	display.clear();
-	display.drawString(58, 22, "JOINING...");
+	display.drawString(display.getWidth()/2, display.getHeight()/2,"JOINING...");
 	display.display();
 }
 void LoRaWanClass::displayJoined()
@@ -749,7 +751,7 @@ void LoRaWanClass::displaySending()
 	display.setFont(ArialMT_Plain_16);
 	display.setTextAlignment(TEXT_ALIGN_CENTER);
 	display.clear();
-	display.drawString(58, 22, "SENDING...");
+	display.drawString(display.getWidth()/2, display.getHeight()/2, "SENDING...");
 	display.display();
 	delay(1000);
 }
@@ -790,8 +792,8 @@ void LoRaWanClass::displayMcuInit()
 	display.setFont(ArialMT_Plain_16);
 	display.setTextAlignment(TEXT_ALIGN_CENTER);
 	display.clear();
-	display.drawString(64, 11, "LORAWAN");
-	display.drawString(64, 33, "STARTING");
+	display.drawString(display.getWidth()/2, display.getHeight()/2-10, "LORAWAN");
+	display.drawString(display.getWidth()/2, display.getHeight()/2+5, "STARTING");
 	display.display();
 	delay(2000);
 }

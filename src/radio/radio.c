@@ -1,5 +1,5 @@
-#include "Arduino.h"
-#if defined(WIFI_LoRa_32_V3)||defined(Wireless_Mini_Shell)
+#include <Arduino.h>
+#if defined(WIFI_LoRa_32_V3)||defined(Wireless_Track)||defined(Wireless_Mini_Shell)||defined(WIFI_LoRa_32_SX1262)||defined(Wireless_Stick_V3)||defined(Wireless_Stick_Lite_V3)
 #include <math.h>
 #include <string.h>
 #include "../driver/timer.h"
@@ -1133,7 +1133,6 @@ void RadioIrqProcess( void )
 {
     if( IrqFired == true )
     {
-
 #ifdef __asr6601__
 		bool tempIrq = BoardDisableIrq( );
         IrqFired = false;
@@ -1160,22 +1159,25 @@ void RadioIrqProcess( void )
 
         if( ( irqRegs & IRQ_RX_DONE ) == IRQ_RX_DONE )
         {
-        	//printf("rx done\r\n");
-            uint8_t size;
             TimerStop( &RxTimeoutTimer );
-            SX126xGetPayload( RadioRxPayload, &size , 255 );
-            SX126xGetPacketStatus( &RadioPktStatus );
-            if( ( RadioEvents != NULL ) && ( RadioEvents->RxDone != NULL ) && ( irqRegs & IRQ_CRC_ERROR ) != IRQ_CRC_ERROR)
+            if( ( irqRegs & IRQ_CRC_ERROR ) == IRQ_CRC_ERROR )
             {
-                RadioEvents->RxDone( RadioRxPayload, size, RadioPktStatus.Params.LoRa.RssiPkt, RadioPktStatus.Params.LoRa.SnrPkt );
+                if( ( RadioEvents != NULL ) && ( RadioEvents->RxError ) )
+                {
+                    RadioEvents->RxError( );
+                }
             }
-        }
-
-        if( ( irqRegs & IRQ_CRC_ERROR ) == IRQ_CRC_ERROR )
-        {
-            if( ( RadioEvents != NULL ) && ( RadioEvents->RxError ) )
+            else
             {
-                RadioEvents->RxError( );
+                //printf("rx done\r\n");
+                uint8_t size;
+                
+                SX126xGetPayload( RadioRxPayload, &size , 255 );
+                SX126xGetPacketStatus( &RadioPktStatus );
+                if( ( RadioEvents != NULL ) && ( RadioEvents->RxDone != NULL ) && ( irqRegs & IRQ_CRC_ERROR ) != IRQ_CRC_ERROR)
+                {
+                    RadioEvents->RxDone( RadioRxPayload, size, RadioPktStatus.Params.LoRa.RssiPkt, RadioPktStatus.Params.LoRa.SnrPkt );
+                }
             }
         }
 

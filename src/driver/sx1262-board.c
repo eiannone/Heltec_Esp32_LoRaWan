@@ -20,12 +20,11 @@
  *
  * \author    Gregory Cristian ( Semtech )
  */
-
-#if defined(WIFI_LoRa_32_V3) || defined(Wireless_Mini_Shell)
+#include "Arduino.h"
+#if defined(WIFI_LoRa_32_V3)||defined(Wireless_Track)||defined(Wireless_Mini_Shell)||defined(WIFI_LoRa_32_SX1262)||defined(Wireless_Stick_V3)||defined(Wireless_Stick_Lite_V3)
 #include <stdlib.h>
 #include "../driver/sx126x-board.h"
 #include "../driver/sx126x.h"
-#include "Arduino.h"
 #include "../driver/board-config.h"
 
 uint8_t gPaOptSetting = 0;

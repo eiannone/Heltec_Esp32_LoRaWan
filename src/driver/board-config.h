@@ -41,7 +41,7 @@
 
 #define BOARD_TCXO_WAKEUP_TIME                      5
 
-#ifdef WIFI_LoRa_32_V3
+#if defined(WIFI_LoRa_32_V3)||defined(Wireless_Track)||(Wireless_Stick_V3)||defined(Wireless_Stick_Lite_V3)
 
 #define RADIO_DIO_1    14
 #define RADIO_NSS      8
@@ -52,7 +52,7 @@
 #define LORA_MISO      11
 #define LORA_MOSI      10
 
-#elif defined(WIFI_LoRa_32_V2)||defined(Wireless_Stick)||defined(Wireless_Stick_Lite)||defined(wireless_bridge)
+#elif defined(WIFI_LoRa_32_V2)||defined(Wireless_Stick)||defined(Wireless_Stick_Lite)||defined(Wireless_Bridge)
 #define RADIO_RESET                                14
 
 #define LORA_MOSI                                  27
@@ -62,6 +62,17 @@
 
 #define RADIO_DIO_0                                26
 #define RADIO_DIO_1    35   // GPIO35 -- SX127x's IRQ(Interrupt Request) V2
+
+
+#elif defined(WIFI_LoRa_32_SX1262)
+#define RADIO_DIO_1    35
+#define RADIO_NSS      14
+#define RADIO_RESET    5
+#define RADIO_BUSY     34
+
+#define LORA_CLK 12
+#define LORA_MISO 15
+#define LORA_MOSI 13
 
 #elif defined(WIFI_LoRa_32)
 #define RADIO_RESET                                 14
@@ -83,8 +94,6 @@
 #define LORA_CLK 10
 #define LORA_MISO 6
 #define LORA_MOSI 7
-
-
 #endif
 
 
