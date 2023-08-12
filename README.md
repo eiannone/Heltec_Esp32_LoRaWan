@@ -5,9 +5,9 @@ The code is directly ported from the original Heltec Arduino library: https://gi
 As the specific [LoRaWan Platformio library](https://registry.platformio.org/libraries/heltecautomation/ESP32_LoRaWAN) seems no more being maintained, and it is not compatible with espressif32 platform versions higher than 3.5.0, I decided to create this new library.
 
 ## Supported boards
-- Heltec WiFi LoRa 32 ([V1](https://docs.platformio.org/en/latest/boards/espressif32/heltec_wifi_lora_32.html) and [V2](https://docs.platformio.org/en/latest/boards/espressif32/heltec_wifi_lora_32_V2.html))
+- Heltec WiFi LoRa 32 ([V1](https://docs.platformio.org/en/latest/boards/espressif32/heltec_wifi_lora_32.html), [V2](https://docs.platformio.org/en/latest/boards/espressif32/heltec_wifi_lora_32_V2.html) and [V3](https://docs.platformio.org/en/latest/boards/espressif32/heltec_wifi_lora_32_V3.html))
 - [Heltec Wireless Stick](https://docs.platformio.org/en/latest/boards/espressif32/heltec_wireless_stick.html)
-- [Heltec Wireless Stick Lite](https://docs.platformio.org/en/latest/boards/espressif32/heltec_wireless_stick_lite.html)
+- [Heltec Wireless Stick Lite](https://docs.platformio.org/en/latest/boards/espressif32/heltec_wireless_stick_lite.html), including V3
 
 ## Configuration
 You need to define some constants in the `build_flags` option inside `platformio.ini` file.

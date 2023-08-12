@@ -78,7 +78,7 @@ void SX126xWaitOnBusy( void )
     	timeout++;
     	if(timeout>1000000)
     	{
-    		lora_printf("spi timeout\r\n");
+    		// lora_printf("spi timeout\r\n");
     		break;
     	}
     	delayMicroseconds(1);

@@ -1,6 +1,6 @@
 {
   "name": "Heltec_Esp32_LoRaWan",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "Arduino/Platformio LoRaWAN library for Heltec ESP32 boards",
   "keywords": "esp32, lora, heltec",
   "repository":
