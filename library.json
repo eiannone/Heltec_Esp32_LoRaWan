@@ -1,6 +1,6 @@
 {
   "name": "Heltec_Esp32_LoRaWan",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "Arduino/Platformio LoRaWAN library for Heltec ESP32 boards",
   "keywords": "esp32, lora, heltec",
   "repository":
@@ -18,5 +18,10 @@
   ],
   "license": "MIT",
   "frameworks": "arduino",
-  "platforms": "espressif32"
+  "platforms": "espressif32",
+  "build": {
+      "flags": [
+          "-L lib"
+      ]
+  }
 }
